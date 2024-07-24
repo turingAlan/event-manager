@@ -1,0 +1,58 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john@acme.com",
+      "password": "123456"
+    },
+    {
+      "id": "4eb13de6d0eb98865b0028370cafe001afe19ebe961faa0ca227be3c9e282591",
+      "email": "sarthak0jain@gmail.com",
+      "firstName": "jain",
+      "lastName": "sarthak",
+      "password": "dafajkjdgkl"
+    },
+    {
+      "id": "4eb13de6d0eb98865b0028370cafe001afe19ebe961faa0ca227be3c9e282591",
+      "email": "sarthak0jain@gmail.com",
+      "firstName": "jain",
+      "lastName": "sarthak",
+      "password": "dafajkjdgkl"
+    },
+    {
+      "id": "4eb13de6d0eb98865b0028370cafe001afe19ebe961faa0ca227be3c9e282591",
+      "email": "sarthak0jain@gmail.com",
+      "firstName": "jain",
+      "lastName": "sarthak",
+      "password": "salkdhgas"
+    },
+    {
+      "id": "4eb13de6d0eb98865b0028370cafe001afe19ebe961faa0ca227be3c9e282591",
+      "email": "sarthak0jain@gmail.com",
+      "firstName": "jain",
+      "lastName": "sarthak",
+      "password": "aslkgahdgfa"
+    }
+  ],
+  "event": [
+    {
+      "id": "1",
+      "name": "Angular Workshop",
+      "date": "2022-01-01",
+      "time": "10:00",
+      "location": "Online",
+      "description": "Angular Workshop for beginners",
+      "organizer": "John Doe",
+      "participants": [
+        {
+          "id": "1",
+          "firstName": "John",
+          "lastName": "Doe",
+          "email": "json@acme.com"
+        }
+      ]
+    }
+  ]
+}

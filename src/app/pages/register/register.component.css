@@ -1,0 +1,16 @@
+.register-heading{
+    position: relative;
+    padding-bottom: 5px;
+    width: fit-content;
+}
+
+.register-heading::after{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, rgb(204, 0, 255), rgb(238, 5, 184));
+    border-radius: 10px;
+}

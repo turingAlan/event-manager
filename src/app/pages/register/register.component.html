@@ -1,0 +1,88 @@
+  
+   <section class="min-h-svh w-full grid grid-flow-col grid-cols-2">
+    <div class="w-full h-full">
+        <img src="assets/authentication.svg" alt="register" class="w-full h-full object-cover" />
+    </div>
+    <div class="w-full h-full flex items-center justify-center">
+          <div class="md:max-w-xl flex flex-col gap-8">
+            <span class="!text-2xl flex mb-6 register-heading">
+                Register
+            </span>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-5">
+                <mat-form-field class="w-full" floatLabel="always">
+                  <mat-label>Enter your email</mat-label>
+                  <input
+                    matInput
+                    placeholder="pat@example.com"
+                    formControlName="email"
+                    required
+                  />
+                  @if (email.invalid) {
+                    <mat-error>{{errorMessage().email}}</mat-error>
+                  }
+                </mat-form-field>
+                
+                <div class="flex gap-2">
+                    <mat-form-field floatLabel="always">
+                    <mat-label>Enter your first name</mat-label>
+                  <input
+                    matInput
+                    placeholder="John"
+                    formControlName="firstName"
+                    type="text"
+                    required
+                  />
+                  @if (firstName.invalid) {
+                    <mat-error>{{errorMessage().firstName}}</mat-error>
+                  }
+                </mat-form-field>
+                <mat-form-field floatLabel="always">
+                    <mat-label>Enter your last name</mat-label>
+                    <input
+                      matInput
+                      placeholder="Doe"
+                      formControlName="lastName"
+                      type="text"
+                      required
+                    />
+                    @if (lastName.invalid) {
+                      <mat-error>{{errorMessage().lastName}}</mat-error>
+                    }
+                  </mat-form-field>
+                </div>
+
+                <mat-form-field class="w-full" floatLabel="always">
+                    <mat-label>Enter your password</mat-label>
+                    <input
+                      matInput
+                      placeholder="**********"
+                      formControlName="password"
+                      type="password"
+                      required
+                    />
+                    <mat-hint [class]="password.value.length>20?'text-red-700':''"> {{password.value.length}}/20</mat-hint>
+                    @if (password.invalid) {
+                      <mat-error>{{errorMessage().password}}</mat-error>
+                    }
+                  </mat-form-field>
+
+        
+                <div>
+                  <button type="submit" mat-flat-button 
+                  [disabled]="!registerForm.valid"
+                  matTooltip="Sign up"
+                    class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Sign up
+                  </button>
+                </div>
+              </form>
+              <div>
+                <h2 class="!text-sm">
+                    Already have an account? <button routerLink="/authentication/login" aria-label="signup"  class="underline text-rose-400 font-bold">
+                        Sign in
+                    </button>
+                </h2>
+              </div>
+          </div>
+      </div>
+
