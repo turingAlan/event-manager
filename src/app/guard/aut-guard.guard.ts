@@ -11,7 +11,7 @@ export const autGuard: CanActivateFn = (
   state: RouterStateSnapshot
 ) => {
   const router = inject(Router);
-  const protectedRoute = ['/home'];
+  const protectedRoute = ['/home/event-list', '/home/event-create'];
   const authRoute = ['/authentication/login', '/authentication/register'];
 
   return protectedRoute.includes(state.url) && !localStorage.getItem('token')

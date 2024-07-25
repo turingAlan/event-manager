@@ -88,7 +88,8 @@ export class LoginComponent {
         });
         localStorage.setItem('token', userData.id);
         localStorage.setItem('user', JSON.stringify(userData));
-        this.router.navigate(['/home']);
+        this.loginForm.reset();
+        this.router.navigate(['/home/event-list']);
       } catch (error) {
         let snackBarRef = this._snackBar.open('User not found', 'sign up', {
           duration: 3000,

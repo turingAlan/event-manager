@@ -65,6 +65,12 @@ export class AuthenticateService {
     });
   }
 
+  logout(): Boolean {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    return true;
+  }
+
   async register(
     email: string,
     password: string,

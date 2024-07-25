@@ -1,37 +1,28 @@
 {
-  "user": [
-    {
-      "id": "1",
-      "firstName": "John",
-      "lastName": "Doe",
-      "email": "john@acme.com",
-      "password": "123456"
-    },
-    {
-      "id": "74a8c5f31b1770e6643a420140f7ea81c5bc88d039b94ee783851b931c5ce483",
-      "email": "sarthak0jain@gmail.com",
-      "firstName": "sarthak",
-      "lastName": "jain",
-      "password": "Sarthak@09"
-    }
-  ],
-  "event": [
-    {
-      "id": "1",
-      "name": "Angular Workshop",
-      "date": "2022-01-01",
-      "time": "10:00",
-      "location": "Online",
-      "description": "Angular Workshop for beginners",
-      "organizer": "John Doe",
-      "participants": [
+    "user": [
         {
-          "id": "1",
-          "firstName": "John",
-          "lastName": "Doe",
-          "email": "json@acme.com"
+            "id": "1",
+            "firstName": "John",
+            "lastName": "Doe",
+            "email": "john@acme.com",
+            "password": "123456"
+        },
+        {
+            "id": "74a8c5f31b1770e6643a420140f7ea81c5bc88d039b94ee783851b931c5ce483",
+            "email": "sarthak0jain@gmail.com",
+            "firstName": "sarthak",
+            "lastName": "jain",
+            "password": "Sarthak@09"
         }
-      ]
-    }
-  ]
+    ],
+    "event": [
+        {
+            "id": "1",
+            "name": "Angular Workshop",
+            "description": "Angular Workshop for beginners",
+            "date": "2022-01-01",
+            "location": "Online",
+            "organizerId": "1"
+        }
+    ]
 }
