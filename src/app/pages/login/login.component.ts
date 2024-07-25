@@ -6,9 +6,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { merge } from 'rxjs';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthenticateService } from '../../authenticate.service';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +35,12 @@ export class LoginComponent {
     email: '',
     password: '',
   });
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthenticateService,
+    private _snackBar: MatSnackBar,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: [
@@ -64,11 +71,34 @@ export class LoginComponent {
     return this.loginForm.get('password');
   }
 
-  onSubmit() {
+  navigateToRegister() {
+    this.router.navigate(['/authentication/register']);
+  }
+
+  async onSubmit() {
     if (this.loginForm.valid) {
-      console.log('Login submitted', this.loginForm.value);
+      try {
+        const userData = await this.auth.login(
+          this.email.value,
+          this.password.value
+        );
+
+        this._snackBar.open('Login successful', '', {
+          duration: 2000,
+        });
+        localStorage.setItem('token', userData.id);
+        localStorage.setItem('user', JSON.stringify(userData));
+        this.router.navigate(['/home']);
+      } catch (error) {
+        let snackBarRef = this._snackBar.open('User not found', 'sign up', {
+          duration: 3000,
+        });
+        snackBarRef.onAction().subscribe(() => {
+          this.navigateToRegister();
+        });
+      }
     } else {
-      console.log(this.loginForm.get('email')?.errors);
+      this._snackBar.open('Please fill in the form', 'Close');
     }
   }
 

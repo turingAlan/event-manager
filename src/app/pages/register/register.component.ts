@@ -6,11 +6,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { first, last, merge } from 'rxjs';
-import { RouterLink } from '@angular/router';
-import { sha256 } from 'js-sha256';
-import { HttpClient } from '@angular/common/http';
+import { merge } from 'rxjs';
+import { Router, RouterLink } from '@angular/router';
+import { AuthenticateService } from '../../authenticate.service';
 
 @Component({
   selector: 'app-register',
@@ -37,7 +37,12 @@ export class RegisterComponent {
     firstName: '',
     lastName: '',
   });
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthenticateService,
+    private _snackBar: MatSnackBar,
+    private router: Router
+  ) {
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: [
@@ -131,47 +136,31 @@ export class RegisterComponent {
     }
   }
 
-  handleSignUp() {
-    const stringToHash = this.email + this.password;
-    const hashedString = sha256(stringToHash);
-    let isUserExist = false;
-    this.http.get<any>(`http://localhost:3000/user`).subscribe({
-      next: (response) => {
-        response?.forEach((element: any) => {
-          if (
-            element.email === this.email.value ||
-            element.password === this.password.value
-          ) {
-            console.log('hello', element.id);
-            isUserExist = true;
-            return;
-          }
-          if (isUserExist) {
-            console.log('why not coming');
-            alert('User already exist');
-          } else {
-            this.http
-              .post<any>(`http://localhost:3000/user`, {
-                email: this.email.value,
-                firstName: this.lastName.value,
-                lastName: this.firstName.value,
-                password: this.password.value,
-                id: hashedString,
-              })
-              .subscribe({
-                next: (response) => {
-                  console.log(response);
-                },
-                error: (error) => {
-                  console.error(error);
-                },
-              });
-          }
-        });
-      },
-      error: (error) => {
-        console.error(error);
-      },
-    });
+  navigateToLogin() {
+    this.router.navigate(['/authentication/login']);
+  }
+
+  async handleSignUp() {
+    const { email, password, firstName, lastName } = this.registerForm.value;
+    try {
+      const userData = await this.auth.register(
+        email,
+        password,
+        firstName,
+        lastName
+      );
+
+      this._snackBar.open('Registration successful', '', { duration: 2000 });
+      this.navigateToLogin();
+      this.registerForm.reset();
+    } catch (error) {
+      console.log(error, 'error');
+      let snackBarRef = this._snackBar.open('User already exists', 'login', {
+        duration: 3000,
+      });
+      snackBarRef.onAction().subscribe(() => {
+        this.navigateToLogin();
+      });
+    }
   }
 }
