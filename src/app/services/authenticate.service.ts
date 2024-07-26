@@ -25,43 +25,49 @@ export class AuthenticateService {
   async checkUserExist(email: string, password: string): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
       let isUserExist = false;
-      this.http.get<any>(`http://localhost:3000/user`).subscribe({
-        next: (response) => {
-          response?.forEach((element: any) => {
-            if (element.email === email || element.password === password) {
-              isUserExist = true;
-              return;
-            }
-          });
-          resolve(isUserExist);
-        },
-        error: (error) => {
-          reject(error);
-        },
-      });
+      this.http
+        .get<any>(`https://ppr1cswp-3000.inc1.devtunnels.ms/user`)
+        .subscribe({
+          next: (response) => {
+            response?.forEach((element: any) => {
+              if (element.email === email || element.password === password) {
+                isUserExist = true;
+                return;
+              }
+            });
+            resolve(isUserExist);
+          },
+          error: (error) => {
+            reject(error);
+          },
+        });
     });
   }
 
   async login(email: string, password: string): Promise<User> {
     let userData: any;
     return new Promise<User>((resolve, reject) => {
-      this.http.get<any>(`http://localhost:3000/user`).subscribe({
-        next: (response) => {
-          response?.forEach((element: User) => {
-            if (element.email === email && element.password === password) {
-              userData = element;
+      this.http
+        .get<any>(`https://ppr1cswp-3000.inc1.devtunnels.ms/user/`)
+        .subscribe({
+          next: (response) => {
+            console.log(response, 'response');
+            response?.forEach((element: User) => {
+              if (element.email === email && element.password === password) {
+                userData = element;
+              }
+            });
+            if (userData) {
+              resolve(userData);
+            } else {
+              reject('User not found');
             }
-          });
-          if (userData) {
-            resolve(userData);
-          } else {
-            reject('User not found');
-          }
-        },
-        error: (error) => {
-          reject(error);
-        },
-      });
+          },
+          error: (error) => {
+            console.log(error, 'error');
+            reject(error);
+          },
+        });
     });
   }
 
@@ -86,7 +92,7 @@ export class AuthenticateService {
         reject('User already exist');
       } else {
         this.http
-          .post<any>(`http://localhost:3000/user`, {
+          .post<any>(`https://ppr1cswp-3000.inc1.devtunnels.ms/user`, {
             email: email,
             firstName: firstName,
             lastName: lastName,

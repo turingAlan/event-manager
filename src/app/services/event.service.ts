@@ -11,30 +11,34 @@ export class EventService {
 
   async getEvents(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
-      this.http.get<any>('http://localhost:3000/event').subscribe({
-        next: (data) => {
-          let fitleredData = data.filter((event: Event) => {
-            return event?.organizerId === localStorage.getItem('token');
-          });
-          resolve(fitleredData);
-        },
-        error: (error) => {
-          reject(error);
-        },
-      });
+      this.http
+        .get<any>('https://ppr1cswp-3000.inc1.devtunnels.ms/event')
+        .subscribe({
+          next: (data) => {
+            let fitleredData = data.filter((event: Event) => {
+              return event?.organizerId === localStorage.getItem('token');
+            });
+            resolve(fitleredData);
+          },
+          error: (error) => {
+            reject(error);
+          },
+        });
     });
   }
 
   async getEventById(id: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
-      this.http.get<any>(`http://localhost:3000/event/${id}`).subscribe({
-        next: (data) => {
-          resolve(data);
-        },
-        error: (error) => {
-          reject(error);
-        },
-      });
+      this.http
+        .get<any>(`https://ppr1cswp-3000.inc1.devtunnels.ms/event/${id}`)
+        .subscribe({
+          next: (data) => {
+            resolve(data);
+          },
+          error: (error) => {
+            reject(error);
+          },
+        });
     });
   }
 
@@ -45,21 +49,26 @@ export class EventService {
       data.id = eventId;
       data.organizerId = organizerId;
 
-      this.http.post<any>('http://localhost:3000/event', data).subscribe({
-        next: (data) => {
-          resolve(data);
-        },
-        error: (error) => {
-          reject(error);
-        },
-      });
+      this.http
+        .post<any>('https://ppr1cswp-3000.inc1.devtunnels.ms/event', data)
+        .subscribe({
+          next: (data) => {
+            resolve(data);
+          },
+          error: (error) => {
+            reject(error);
+          },
+        });
     });
   }
 
   async updateEvent(data: Event): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       this.http
-        .put<any>(`http://localhost:3000/event/${data.id}`, data)
+        .put<any>(
+          `https://ppr1cswp-3000.inc1.devtunnels.ms/event/${data.id}`,
+          data
+        )
         .subscribe({
           next: (data) => {
             resolve(data);
@@ -73,14 +82,16 @@ export class EventService {
 
   async deleteEvent(id: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
-      this.http.delete<any>(`http://localhost:3000/event/${id}`).subscribe({
-        next: (data) => {
-          resolve(data);
-        },
-        error: (error) => {
-          reject(error);
-        },
-      });
+      this.http
+        .delete<any>(`https://ppr1cswp-3000.inc1.devtunnels.ms/event/${id}`)
+        .subscribe({
+          next: (data) => {
+            resolve(data);
+          },
+          error: (error) => {
+            reject(error);
+          },
+        });
     });
   }
 }
