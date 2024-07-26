@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { merge } from 'rxjs';
 import { Router, RouterLink } from '@angular/router';
-import { AuthenticateService } from '../../authenticate.service';
+import { AuthenticateService } from '../../services/authenticate.service';
 
 @Component({
   selector: 'app-register',
@@ -129,10 +129,8 @@ export class RegisterComponent {
 
   onSubmit() {
     if (this.registerForm.valid) {
-      console.log('register submitted', this.registerForm.value);
       this.handleSignUp();
     } else {
-      console.log(this.registerForm.get('email')?.errors);
     }
   }
 

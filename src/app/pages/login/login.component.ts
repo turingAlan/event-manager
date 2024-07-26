@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { merge } from 'rxjs';
 import { Router, RouterLink } from '@angular/router';
-import { AuthenticateService } from '../../authenticate.service';
+import { AuthenticateService } from '../../services/authenticate.service';
 
 @Component({
   selector: 'app-login',

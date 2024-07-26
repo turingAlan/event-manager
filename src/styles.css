@@ -8,3 +8,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 *{
     box-sizing: border-box;
 }
+
+.mdc-notched-outline__notch { border-right: none; }
+
+body{
+    background-color: rgb(241, 238, 231);
+}
+
+td{
+    border-bottom-width: 0px !important;
+}
+
+
+a{
+    text-decoration: none;
+    color: rgb(251 113 133);
+}

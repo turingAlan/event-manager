@@ -1,0 +1,76 @@
+<app-home>
+    <ng-container *ngIf="loading; else showDetails">
+        <app-loader></app-loader>
+    </ng-container>
+
+    <ng-template #showDetails>
+        <div class="container mx-auto p-4">
+            <mat-card class="max-w-md mx-auto">
+              <mat-card-header>
+                <mat-card-title class="text-2xl font-bold mb-4">Event Details</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <form [formGroup]="eventForm" (ngSubmit)="onEdit()" class="flex flex-col space-y-4 mt-4">
+                  <mat-form-field appearance="outline" class="w-full">
+                    <mat-label class="!text-black">Event Name</mat-label>
+                    <input class="!text-black" matInput [disabled]="true" formControlName="eventName" required>
+                    <mat-error *ngIf="eventForm.get('eventName')?.hasError('required')">
+                      Event name is required
+                    </mat-error>
+                  </mat-form-field>
+        
+                  <mat-form-field appearance="outline" class="w-full">
+                    <mat-label class="!text-black">Description</mat-label>
+                    <textarea class="!text-black" matInput formControlName="description" rows="4" required></textarea>
+                    <mat-error *ngIf="eventForm.get('description')?.hasError('required')">
+                      Description is required
+                    </mat-error>
+                  </mat-form-field>
+        
+                  <mat-form-field appearance="outline" class="w-full">
+                    <mat-label class="!text-black">Location</mat-label>
+                    <input class="!text-black" matInput formControlName="location" required>
+                    <mat-error *ngIf="eventForm.get('location')?.hasError('required')">
+                      Location is required
+                    </mat-error>
+                  </mat-form-field>
+        
+                  <mat-form-field appearance="outline" class="w-full">
+                    <mat-label class="!text-black">Date</mat-label>
+                    <input class="!text-black" matInput [matDatepicker]="picker" formControlName="date" required>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="eventForm.get('date')?.hasError('required')">
+                      Date is required
+                    </mat-error>
+                  </mat-form-field>
+        
+                  <ng-container *ngIf="isEditing; else formOptions">
+                    <div class="flex gap-3">
+                        <button mat-flat-button type="submit" [disabled]="eventForm.invalid" class="w-full">
+                            Update Event
+                          </button>
+                          <button mat-flat-button type="button" (click)="handleCancelEdit()" class="w-full">
+                           Cancel
+                          </button>
+                    </div>
+                  </ng-container>
+
+                <ng-template #formOptions>
+                 <div class="flex gap-3 mx-auto">
+                    <button mat-fab extended type="button" (click)="handleEditClick()" class="w-full">
+                        Edit
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                      <button mat-fab extended type="button" (click)="handleDelete()" class="w-full">
+                        Delete
+                        <mat-icon>delete</mat-icon>
+                        </button>
+                 </div>
+                </ng-template>
+                </form>
+              </mat-card-content>
+            </mat-card>
+          </div>
+    </ng-template>
+</app-home>

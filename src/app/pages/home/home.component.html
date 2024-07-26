@@ -1,16 +1,16 @@
-<section class="flex flex-col h-svh w-screen overflow-hidden">
+<section class="flex flex-col h-svh w-screen overflow-hidden pb-8">
     <!-- Top Bar -->
-    <mat-toolbar color="primary" class="flex justify-between">
-      <span class="md:text-2xl sm:text-xl text-sm">Event Manager</span>
-      <div>
-        <button mat-button routerLink="/home/event-list" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Events</button>
-        <button mat-button routerLink="/add-event" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Add Event</button>
-        <button mat-button (click)="logout()" class="flex items-center" matTooltip="logout"><mat-icon aria-label="Example icon for logout">logout</mat-icon></button>
+    <mat-toolbar color="primary" class="flex justify-between !py-4 shadow-lg !bg-transparent">
+      <span class="md:text-2xl sm:text-xl text-sm hover:cursor-pointer select-none" routerLink="/home/event-list">Event Manager</span>
+      <div class="flex items-center gap-2">
+        <button mat-button matTooltip="/event"  routerLink="/home/event-list" class="bg-[#ffdad4] shadow-lg" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Events</button>
+        <button mat-button matTooltip="/add-event" routerLink="/home/event-create" class="shadow-lg" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Add Event</button>
+        <button mat-mini-fab (click)="logout()" class="flex items-center" matTooltip="logout"><mat-icon aria-label="Example icon for logout">logout</mat-icon></button>
       </div>
     </mat-toolbar>
 
     <!-- Main Content -->
-    <div class="flex-grow overflow-auto p-4 w-full mx-auto">
+    <div class="flex-grow overflow-auto p-2 sm:p-4 w-full mx-auto">
       <ng-content></ng-content>
     </div>
   </section>

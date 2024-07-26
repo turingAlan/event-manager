@@ -1,15 +1,15 @@
   
    <section class="min-h-svh w-full grid grid-flow-col grid-cols-2">
-    <div class="w-full h-full">
-        <img src="assets/authentication.svg" alt="register" class="w-full h-full object-cover" />
+    <div class="w-full h-full hidden md:block">
+        <img src="assets/authentication.svg" alt="register" class="w-full h-full" />
     </div>
-    <div class="w-full h-full flex items-center justify-center">
+    <div class="w-screen px-4 sm:px-0 md:w-full h-full flex items-center justify-center">
           <div class="md:max-w-xl flex flex-col gap-8">
             <span class="!text-2xl flex mb-6 register-heading">
                 Register
             </span>
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-5">
-                <mat-form-field class="w-full" floatLabel="always">
+                <mat-form-field appearance="outline" class="w-full" floatLabel="always">
                   <mat-label>Enter your email</mat-label>
                   <input
                     matInput
@@ -22,8 +22,8 @@
                   }
                 </mat-form-field>
                 
-                <div class="flex gap-2">
-                    <mat-form-field floatLabel="always">
+                <div class="sm:flex sm:gap-2">
+                    <mat-form-field class="w-full" appearance="outline" floatLabel="always">
                     <mat-label>Enter your first name</mat-label>
                   <input
                     matInput
@@ -36,7 +36,7 @@
                     <mat-error>{{errorMessage().firstName}}</mat-error>
                   }
                 </mat-form-field>
-                <mat-form-field floatLabel="always">
+                <mat-form-field class="w-full" appearance="outline" floatLabel="always">
                     <mat-label>Enter your last name</mat-label>
                     <input
                       matInput
@@ -51,7 +51,7 @@
                   </mat-form-field>
                 </div>
 
-                <mat-form-field class="w-full" floatLabel="always">
+                <mat-form-field appearance="outline" class="w-full" floatLabel="always">
                     <mat-label>Enter your password</mat-label>
                     <input
                       matInput

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { sha256 } from 'js-sha256';
-import { User } from './models/user.models';
+import { User } from '../models/user.models';
 
 @Injectable({
   providedIn: 'root',

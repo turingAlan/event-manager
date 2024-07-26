@@ -5,7 +5,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
 import { EventListComponent } from './pages/event-list/event-list.component';
 import { EventFormComponent } from './pages/event-form/event-form.component';
-import { EditEventComponent } from './pages/edit-event/edit-event.component';
+import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +17,7 @@ import { EditEventComponent } from './pages/edit-event/edit-event.component';
     HomeComponent,
     EventListComponent,
     EventFormComponent,
-    EditEventComponent,
+    EventDetailComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

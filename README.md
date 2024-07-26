@@ -1,27 +1,103 @@
-# EventManager
+# Event Manager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+## Overview
+Event Manager is a web application built with Angular 18 that allows users to efficiently manage events. With a sleek and intuitive interface, users can easily add, edit, and delete events. The application is secured with email and password authentication to ensure data privacy and user-specific event management.
 
-## Development server
+## Features
+- User Authentication:
+  - Secure login with email and password
+  - Protected routes for authenticated users only
+- Event Management:
+  - Add new events with details such as title, description, date, time, and location
+  - Edit existing events
+  - Delete events
+  - View a list of all events
+  - Detailed view of individual events
+- Responsive Design:
+  - Fully responsive interface that works on desktop, tablet, and mobile devices
+- Data Persistence:
+  - Events are saved and retrieved from a backend service
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Prerequisites
+Before you begin, ensure you have met the following requirements:
+- Node.js (v14.x or later)
+- npm (v6.x or later)
+- Angular CLI (v18.x)
 
-## Code scaffolding
+## Installation and Setup
+Follow these steps to get your development environment set up:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clone the repository
+   ```
+   git clone https://github.com/turingAlan/event-manager.git
+   ```
 
-## Build
+2. Navigate to the project directory
+   ```
+   cd event-manager
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Install dependencies
+   ```
+   npm install
+   ```
+3. Run Json server to run mock backend
+   ```
+   npm i -g json-server && json-server --watch db.json
+   ```
 
-## Running unit tests
+4. Start the development server
+   ```
+   ng serve
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+5. Open your browser and visit `http://localhost:4200`
 
-## Running end-to-end tests
+## Folder Structure
+```
+event-manager/
+│
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   └── loader.component.ts
+│   │   ├── pages/
+│   │   │   ├── event-detail/
+│   │   │   ├── event-form/
+│   │   │   ├── event-list/
+│   │   │   ├── home/
+│   │   │   ├── login/
+│   │   │   ├── page-not-found/
+│   │   │   └── register/
+│   │   ├── services/
+│   │   │   ├── authenticate.service.ts
+│   │   │   └── event.service.ts
+│   │   ├── models/
+│   │   │   ├── event.model.ts
+│   │   │   └── user.model.ts
+│   │   ├── guards/
+│   │   │   └── auth.guard.ts
+│   │   ├── app-routing.module.ts
+│   │   ├── app.component.ts
+│   │   └── app.module.ts
+│   ├── assets/
+│   ├── environments/
+│   ├── index.html
+│   └── styles.scss
+│
+├── angular.json
+├── package.json
+├── tsconfig.json
+└── README.md
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Built With
+- [Angular 18](https://angular.io/) - The web framework used
+- [Angular Material](https://material.angular.io/) - UI component library
+- [RxJS](https://rxjs.dev/) - Reactive Extensions Library for JavaScript
+- [Tailwind](https://tailwindcss.com/) - A utility-first CSS framework
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Authors
+- **Sarthak Jain** - [turingAlan](https://github.com/turingAlan)
+

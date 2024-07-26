@@ -1,0 +1,35 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john@acme.com",
+      "password": "123456"
+    },
+    {
+      "id": "74a8c5f31b1770e6643a420140f7ea81c5bc88d039b94ee783851b931c5ce483",
+      "email": "sarthak0jain@gmail.com",
+      "firstName": "sarthak",
+      "lastName": "jain",
+      "password": "Sarthak@09"
+    },
+    {
+      "id": "aadb97d1f653a930f3301b97d25e724e065dba90f590a673dd69f7801a96fdcb",
+      "email": "sarthak01jain@gmail.com",
+      "firstName": "Sarthak",
+      "lastName": "Jain",
+      "password": "Sarthak@08"
+    }
+  ],
+  "event": [
+    {
+      "id": "23a63d55b9fe0186dc8593a20bb46eeed5d584152dffc144d58ca9f211089545",
+      "eventName": "best",
+      "description": "best",
+      "location": "best",
+      "date": "2024-07-25T00:00:00.000+05:30",
+      "organizerId": "74a8c5f31b1770e6643a420140f7ea81c5bc88d039b94ee783851b931c5ce483"
+    }
+  ]
+}
