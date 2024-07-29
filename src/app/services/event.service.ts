@@ -12,7 +12,7 @@ export class EventService {
   async getEvents(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       this.http
-        .get<any>('https://ppr1cswp-3000.inc1.devtunnels.ms/event')
+        .get<any>('https://ppr1cswp-4000.inc1.devtunnels.ms/event')
         .subscribe({
           next: (data) => {
             let fitleredData = data.filter((event: Event) => {
@@ -30,7 +30,7 @@ export class EventService {
   async getEventById(id: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       this.http
-        .get<any>(`https://ppr1cswp-3000.inc1.devtunnels.ms/event/${id}`)
+        .get<any>(`https://ppr1cswp-4000.inc1.devtunnels.ms/event/${id}`)
         .subscribe({
           next: (data) => {
             resolve(data);
@@ -50,7 +50,7 @@ export class EventService {
       data.organizerId = organizerId;
 
       this.http
-        .post<any>('https://ppr1cswp-3000.inc1.devtunnels.ms/event', data)
+        .post<any>('https://ppr1cswp-4000.inc1.devtunnels.ms/event', data)
         .subscribe({
           next: (data) => {
             resolve(data);
@@ -66,7 +66,7 @@ export class EventService {
     return new Promise<any>((resolve, reject) => {
       this.http
         .put<any>(
-          `https://ppr1cswp-3000.inc1.devtunnels.ms/event/${data.id}`,
+          `https://ppr1cswp-4000.inc1.devtunnels.ms/event/${data.id}`,
           data
         )
         .subscribe({
@@ -83,7 +83,7 @@ export class EventService {
   async deleteEvent(id: string): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       this.http
-        .delete<any>(`https://ppr1cswp-3000.inc1.devtunnels.ms/event/${id}`)
+        .delete<any>(`https://ppr1cswp-4000.inc1.devtunnels.ms/event/${id}`)
         .subscribe({
           next: (data) => {
             resolve(data);

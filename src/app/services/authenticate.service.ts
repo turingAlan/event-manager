@@ -26,7 +26,7 @@ export class AuthenticateService {
     return new Promise<boolean>((resolve, reject) => {
       let isUserExist = false;
       this.http
-        .get<any>(`https://ppr1cswp-3000.inc1.devtunnels.ms/user`)
+        .get<any>(`https://ppr1cswp-4000.inc1.devtunnels.ms/user`)
         .subscribe({
           next: (response) => {
             response?.forEach((element: any) => {
@@ -48,7 +48,7 @@ export class AuthenticateService {
     let userData: any;
     return new Promise<User>((resolve, reject) => {
       this.http
-        .get<any>(`https://ppr1cswp-3000.inc1.devtunnels.ms/user/`)
+        .get<any>(`https://ppr1cswp-4000.inc1.devtunnels.ms/user/`)
         .subscribe({
           next: (response) => {
             console.log(response, 'response');
@@ -92,7 +92,7 @@ export class AuthenticateService {
         reject('User already exist');
       } else {
         this.http
-          .post<any>(`https://ppr1cswp-3000.inc1.devtunnels.ms/user`, {
+          .post<any>(`https://ppr1cswp-4000.inc1.devtunnels.ms/user`, {
             email: email,
             firstName: firstName,
             lastName: lastName,

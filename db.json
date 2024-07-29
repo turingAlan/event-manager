@@ -20,15 +20,37 @@
       "firstName": "Sarthak",
       "lastName": "Jain",
       "password": "Sarthak@08"
+    },
+    {
+      "id": "b58367c26f18d912238060b85ac842fc7ee5559c2f9d8efc4a9bf4f9a4c0c068",
+      "email": "satyam@platformcommons.com",
+      "firstName": "Satyam",
+      "lastName": "Gambhir",
+      "password": "satyam123"
+    },
+    {
+      "id": "8ab92751720bd56e7ab680c3d7589db40c391f205f0375ce2fd07eba03c1fb5c",
+      "email": "test@yopmail.com",
+      "firstName": "test",
+      "lastName": "yop",
+      "password": "test1234"
     }
   ],
   "event": [
     {
-      "id": "23a63d55b9fe0186dc8593a20bb46eeed5d584152dffc144d58ca9f211089545",
-      "eventName": "best",
-      "description": "best",
-      "location": "best",
-      "date": "2024-07-25T00:00:00.000+05:30",
+      "id": "2d1e7c577d0af678eb135a40160b24e4363f8359ed80a56e90271b4ff65875fc",
+      "eventName": "Test Event",
+      "description": "Test Event Description",
+      "location": "Bangalore",
+      "date": "2024-07-27T00:00:00.000+05:30",
+      "organizerId": "b58367c26f18d912238060b85ac842fc7ee5559c2f9d8efc4a9bf4f9a4c0c068"
+    },
+    {
+      "id": "3e2e2abcd287eb1e4a58dabf637c771b52a4099f6f293e0d79ba0fc8f7adfa7b",
+      "eventName": "testign",
+      "description": "testing",
+      "location": "testing",
+      "date": "2024-07-17T00:00:00.000+05:30",
       "organizerId": "74a8c5f31b1770e6643a420140f7ea81c5bc88d039b94ee783851b931c5ce483"
     }
   ]
